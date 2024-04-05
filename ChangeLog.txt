@@ -1,0 +1,219 @@
+﻿ChangeLog
+*********************************************************************************************************************************
+
+08/01/2024 - "V 1.0.0 Rev 52"
+
+❑ Cambio: Se añade al Método GeneraInformeDigLibHoras, la inserción de las cabeceras de los TagIndex seleccionados en caso de no tener datos a mostrar en el informe.
+
+❑ Cambio: Se añade al Método GeneraInformeDigLibDias, la inserción de las cabeceras de los TagIndex seleccionados en caso de no tener datos a mostrar en el informe.
+
+❑ Cambio: Se añade al Método GeneraInformeDigWeek, la inserción de las cabeceras de los TagIndex seleccionados en caso de no tener datos a mostrar en el informe.
+
+❑ Cambio: Se añade al Método GeneraInformeDigMonth, la inserción de las cabeceras de los TagIndex seleccionados en caso de no tener datos a mostrar en el informe.
+
+
+❑ BUG: Se corrige BUG que solicitaba en el Field List,  ValorInicial y ValorFinal
+
+❑ BUG: Se corrigen otros pequeños BUGS
+
+⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡
+⚡ 
+⚡   ❑ BUG Pendientes en Selección gráfica:
+⚡   
+⚡   ->❑ BUG  La selección desde el Icono Grafico TagIndex ALL y TagIndex ⚡None, no funciona correctamente.
+⚡   Al marcar el Index0, cambia el valor de TagIndex ALL y TagIndex None
+⚡   
+⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡
+
+*********************************************************************************************************************************
+
+13/12/2023 - "V 1.0.0 Rev 50"
+
+❑ Cambio: En el FormInformesAnalogicas, se elimina la Región “Cruzar datos” y su contenido.
+
+❑ Cambio: En el FormInformesDigitales, se elimina la Región “Cruzar datos” y su contenido.
+
+❑ Cambio: En el modulo Common renombramos el método CreoDtConsultas a CreoDtConsultasAna y realizamos en el código los cambios 
+necesarios de llamada.
+
+❑ Cambio: En el modulo Common creamos el método CreoDtConsultasDig y realizamos en el código los cambios necesarios de llamada.
+
+❑ Cambio: En el modulo Common en el método CargarBinToDt añadimos el parámetro tipo para diferencias si es Analógico o Digital 
+y realizamos en el código los cambios necesarios de llamada.
+
+❑ Cambio: En el modulo Common en el método ConsultaToDt añadimos el parámetro SqlBase para diferenciar si es Analógico o Digital 
+y realizamos en el código los cambios necesarios de llamada.
+
+❑ BUG: En el FormInformesDigitales, se cambia el nombre al RadioButton Libre por horas de  RadioButtoncc2 a RadioButtonccLibrePorDias
+
+❑ BUG: En el FormInformesDigitales, se cambia el la línea 997 de : If RadioButtonccLibrePorHoras.Checked Then 
+(el mismo If correcto está en la línea 982): If RadioButtonccLibrePorDias.Checked Then. 
+
+❑ Cambio: En el FormInformesDigitales, se simplifica el método GeneraInformeDigLibHoras, utilizando desde el Modulo Common 
+los métodos ConsultaToDtDig, GrowDt y AllDt.
+
+❑ BUG: En el FormInformesDigitales, se cambia el en método ComBoxConsultas_SelectedIndexChanged las líneas 378 
+y 380 de RadioButtonccLibrePorHoras a RadioButtonccLibrePorDias 
+
+❑ BUG: En el FormInformesDigitales, se cambia el en método BtnSalvar_Click  la línea 204 de RadioButtonccLibrePorHoras 
+a RadioButtonccLibrePorDias 
+
+❑ BUG: En el FormInformesDigitales, se cambia el en método RadioButtonccLibre_CheckedChanged las líneas 393 y 399 de 
+RadioButtonccLibrePorHoras a RadioButtonccLibrePorDias 
+
+❑ BUG: En el FormInformesDigitales, el objeto RadioButtonccDiario  carece del evento “.CheckedChanged”, por lo que eliminamos 
+RadioButtonccDiario_CheckedChanged, para lograr el mismo resultado hemos creado el método RadioButtoncc_CheckedChanged 
+que también será lógicamente llamado desde el evento ComBoxConsultas_SelectedIndexChanged.
+Creamos el evento RadioButtonccDiario_Click para llamar al nuevo método RadioButtoncc_CheckedChanged al hacer click en el mismo 
+y obtener el mismo resultado y poder realizar los cambios pertinentes en los DataTimePicker.
+ 
+❑ BUG: En el FormInformesDigitales, el objeto RadioButtonccSemanal  carece del evento “.CheckedChanged”, por lo que eliminamos 
+RadioButtonccSemanal_CheckedChanged, para lograr el mismo resultado hemos creado el método RadioButtoncc_CheckedChanged 
+que también será lógicamente llamado desde el evento ComBoxConsultas_SelectedIndexChanged.
+Creamos el evento RadioButtonccSemanal_Click para llamar al nuevo método RadioButtoncc_CheckedChanged al hacer click en el mismo 
+y obtener el mismo resultado y poder realizar los cambios pertinentes en los DataTimePicker.
+
+❑ BUG: En el FormInformesDigitales, el objeto RadioButtonccMensual  carece del evento “.CheckedChanged”, por lo que eliminamos 
+RadioButtonccMensual_CheckedChanged, para lograr el mismo resultado hemos creado el método RadioButtoncc_CheckedChanged 
+que también será lógicamente llamado desde el evento ComBoxConsultas_SelectedIndexChanged.
+Creamos el evento RadioButtonccMensual_Click para llamar al nuevo método RadioButtoncc_CheckedChanged al hacer click en el mismo 
+y obtener el mismo resultado y poder realizar los cambios pertinentes en los DataTimePicker.
+
+❑ BUG: En el FormInformesDigitales, el objeto RadioButtonccLibre  carece del evento “.CheckedChanged”, por lo que eliminamos 
+RadioButtonccLibre_CheckedChanged, para lograr el mismo resultado hemos creado el método RadioButtoncc_CheckedChanged 
+que también será lógicamente llamado desde el evento ComBoxConsultas_SelectedIndexChanged.
+Creamos el evento RadioButtonccLibre_Click para llamar al nuevo método RadioButtoncc_CheckedChanged al hacer click en el mismo 
+y obtener el mismo resultado y poder realizar los cambios pertinentes en los DataTimePicker.
+
+❑ Cambio: En el FormInformesDigitales, se simplifica el método GeneraInformeDigLibDias, utilizando desde el Modulo Common 
+los métodos ConsultaToDtDig, GrowDt y AllDt.
+
+❑ Cambio: En el FormInformesDigitales, se simplifica el método GeneraInformeDigWeek, utilizando desde el Modulo Common 
+los métodos ConsultaToDtDig, GrowDt y AllDt.
+
+❑ Cambio: En el FormInformesDigitales, se simplifica el método GeneraInformeDigMonth, utilizando desde el Modulo Common 
+los métodos ConsultaToDtDig, GrowDt y AllDt.
+
+
+⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡
+⚡ 
+⚡ ❑ BUG Pendientes en Selección gráfica:
+⚡   
+⚡   ->❑ BUG	  El formulario FormInformesDigitales.vb: no carga la selección guardada en el fichero SafeSelectDgvDigital.dat, para la fila 0, 
+⚡   si carga el resto de filas en el nuevo entorno grafico. Si se carga la selección guardada en La columna OK del Dgv.
+⚡   ->❑ BUG  La selección desde el Icono Grafico TagIndex ALL y TagIndex None, no se guarda en el fichero SafeSelectDgvDigital.dat.
+⚡   Tampoco se actualiza correctamente su estado en el arranque.
+⚡   
+⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡
+
+
+*********************************************************************************************************************************
+
+11/12/2023 - "V 1.0.0 Rev 49"
+
+❑ Cambio: Se añade el Método ConsultaToDt al Modulo Common. 
+
+❑ Cambio: Se añade el Método GrowDt al Modulo Common.
+
+❑ Cambio: Se añade el Método AllDt al Modulo Common.
+
+❑ Cambio: En el FormInformesAnalogicas, se simplifica el método GeneraInformeAnaLibHoras, utilizando desde el Modulo Common los métodos ConsultaToDt, GrowDt y AllDt.
+
+❑ Cambio: En el FormInformesAnalogicas, se simplifica el método GeneraInformeAnaLibDias, utilizando desde el Modulo Common los métodos ConsultaToDt, GrowDt y AllDt.
+
+❑ Cambio: En el FormInformesAnalogicas, se simplifica el método GeneraInformeAnaWeek, utilizando desde el Modulo Common los métodos ConsultaToDt, GrowDt y AllDt.
+
+❑ Cambio: En el FormInformesAnalogicas, se simplifica el método GeneraInformeAnaMonth, utilizando desde el Modulo Common los métodos ConsultaToDt, GrowDt y AllDt.
+
+
+⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡
+⚡ 
+⚡ ❑ BUG Pendientes en Selección gráfica:
+⚡   
+⚡   ->❑ BUG	  El formulario FormInformesDigitales.vb: no carga la selección guardada en el fichero SafeSelectDgvDigital.dat, para la fila 0, 
+⚡   si carga el resto de filas en el nuevo entorno grafico. Si se carga la selección guardada en La columna OK del Dgv.
+⚡   ->❑ BUG  La selección desde el Icono Grafico TagIndex ALL y TagIndex None, no se guarda en el fichero SafeSelectDgvDigital.dat.
+⚡   Tampoco se actualiza correctamente su estado en el arranque.
+⚡   
+⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡
+
+*********************************************************************************************************************************
+
+07/12/2023 - "V 1.0.0 Rev 48"
+
+❑ Cambio: Se crea el Modulo Program para la entrada directa de la app .
+
+❑ Cambio: Se unifica en un único punto antes del inicio la verificación de existencia de configPath.
+
+❑ Cambio: Se lee en un único punto antes del inicio DebugLog.
+
+❑ Cambio: Se lee en un único punto antes del inicio SQLCommandStringData_dsAnalog.
+
+❑ Cambio: Se lee en un único punto antes del inicio SQLCommandStringData_dsDigital.
+
+❑ Cambio: Se elimina la variable SQLCommandStringData_dsTest.
+
+❑ BUG: El botón salvar consulta en el formulario FormInformesDigitales.vb, no funciona.
+Se genera nuevo enlace.
+
+❑ BUG: El botón guardar consulta en el formulario FormInformesDigitales.vb, no funciona.
+Se genera nuevo enlace.
+
+❑ BUG: El ComBoxConsultas en el formulario FormInformesDigitales.vb, no funciona el SelectedIndexChanged.
+Se genera nuevo enlace.
+ 
+❑ Cambio: Se crea el Modulo Common
+
+❑ Cambio: Se añade el Método ExportarDtToBin al Modulo Common y se elimina del resto del código.
+
+❑ Cambio: Se añade el Método CreoDtConsultas al Modulo Common y se elimina del resto del código.
+
+❑ Cambio: Se añade el Método CargarBinToDt al Modulo Common y se elimina del resto del código.
+
+❑ Cambio: Se añade el Método AbriPDF al Modulo Common y se elimina del resto del código.
+
+❑ Cambio: Se elimina la carpera RPM y el informe ReportsTool1 que contiene.
+
+⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡
+⚡ 
+⚡ ❑ BUG Pendientes en Selección gráfica:
+⚡   
+⚡   ->❑ BUG	  El formulario FormInformesDigitales.vb: no carga la selección guardada en el fichero SafeSelectDgvDigital.dat, para la fila 0, 
+⚡   si carga el resto de filas en el nuevo entorno grafico. Si se carga la selección guardada en La columna OK del Dgv.
+⚡   ->❑ BUG  La selección desde el Icono Grafico TagIndex ALL y TagIndex None, no se guarda en el fichero SafeSelectDgvDigital.dat.
+⚡   Tampoco se actualiza correctamente su estado en el arranque.
+⚡   
+⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡
+*********************************************************************************************************************************
+
+05/12/2023 - "V 1.0.0 Rev 47"
+
+❑ Cambio: Se comenta MessageBox.Show("No existe archivo de Consultas.") del formulario FormInformesAnalogicas.vb, 
+al ir a buscar el fichero de Consultas
+
+❑ Cambio: Se comenta MessageBox.Show("No existe archivo de Consultas.") del formulario FormInformesDigitales.vb, 
+al ir a buscar el fichero de Consultas
+
+❑ BUG: Error: Object cannotbe cast DBNull to other types.
+Aparece solo al cerrar desde el formulario FormInformesDigitales.vb:
+Error asociado a la nueva selección gráfica, este error se produce al ir a guardar los TagIndex seleccionados, 
+esto viene causado porque en el momento de cerrar la app la columna 0 “OK” ahora es la columna 1, 
+ya que en tiempo de ejecución se añade la Column1 que contiene System.Drawing.Bitmap
+Para solucionar este BUG se modifican los métodos: TagsOkSafe() y SafeSelect() del mimo formulario.
+
+❑ BUG: No guarda al hacer click en las selecciones graficas de cada TagIndex
+Se añade a :dgv_CellMouseClick, la llamada a SafeSelect()
+
+⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡
+⚡ 
+⚡ ❑ BUG Pendientes en Selección gráfica:
+⚡   
+⚡   ->❑ BUG	 El formulario FormInformesDigitales.vb: no carga la selección guardada en el fichero SafeSelectDgvDigital.dat, 
+⚡   en el nuevo entorno grafico. Si se carga la selección guardada en La columna OK del Dgv.
+⚡   ->❑ BUG La selección desde el Icono superior Grafico de TagIndex ALL y TagIndex None, no se guarda en el fichero SafeSelectDgvDigital.dat.
+⚡   Tampoco se actualiza correctamente su estado en el arranque.
+⚡   
+⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡⚡
+*********************************************************************************************************************************
+
+
